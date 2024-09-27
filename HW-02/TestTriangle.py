@@ -1,10 +1,9 @@
 # -*- coding: utf-8 -*-
 """
-Updated Jan 21, 2018
+Updated Sep 27, 2024
 The primary goal of this file is to demonstrate a simple unittest implementation
 
-@author: jrr
-@author: rk
+@author: Sohan Chatterjee
 """
 
 import unittest
