@@ -12,10 +12,10 @@ jobs:
       - run:
           command: |
             pip install pytest
-            pytest --junitxml=test-results/junit.xml HW-02/TestTriangle.py
+            pytest --junitxml=test-results/junit.xml HW-02/TestTriangle.py HW-04/testRepoCommits.py
       - store_test_results:
           path: test-results
 workflows:
-  testing_triangles:
+  testing_functions:
     jobs:
       - build-and-test
