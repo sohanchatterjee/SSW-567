@@ -1,8 +1,26 @@
 import unittest
+from unittest.mock import patch
 import repoCommits 
 
 class TestGetRepoCommits(unittest.TestCase):
-    def testValidRepo(self):
+    
+    @patch('repoCommits.requests.get')
+    def testValidRepo(self, mock_get):
+        mock_get.return_value.json.return_value = [
+            {'name': 'Repo1'},
+            {'name': 'Repo2'}
+        ]
+        
+        mock_get.side_effect = [
+            mock_get.return_value,
+            mock_get.return_value,
+            mock_get.return_value,
+        ]
+        mock_get.return_value.json.side_effect = [
+            [{}, {}],
+            [{}, {}, {}] 
+        ]
+
         repo_data = [
             {'name': 'Repo1', 'commits':[{},{}]},
             {'name': 'Repo2', 'commits':[{},{},{}]}
